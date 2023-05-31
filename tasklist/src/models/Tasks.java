@@ -1,5 +1,7 @@
 package models;
 
+
+
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -14,13 +16,13 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
     @NamedQuery(
-        name = "getAllTask",
-        query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
+        name = "getAllTasks",
+        query = "SELECT m FROM Tasks AS m ORDER BY m.id DESC"
     )
 })
 
-@Table(name = "task")
-public class Task {
+@Table(name = "tasks")
+public class Tasks {
 
     @Id
     @Column(name = "id")
