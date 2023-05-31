@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 import utils.DBUtil;
 
 /**
@@ -50,7 +50,7 @@ public class IndexServlet extends HttpServlet {
 
         EntityManager em = DBUtil.createEntityManager();
 
-        List<Task> tasks = em.createNamedQuery("getAllTask", Task.class).getResultList();
+        List<Tasks> tasks = em.createNamedQuery("getAllTasks", Tasks.class).getResultList();
         response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 
         em.close();

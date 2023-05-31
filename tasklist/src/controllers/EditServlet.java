@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 import utils.DBUtil;
 
 /**
@@ -34,14 +34,14 @@ public class EditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         EntityManager em = DBUtil.createEntityManager();
-        Task m = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
+        Tasks m = em.find(Tasks.class, Integer.parseInt(request.getParameter("id")));
         em.close();
 
-        request.setAttribute("task", m);
+        request.setAttribute("tasks", m);
         request.setAttribute("_token", request.getSession().getId());
 
         //메세지 iD를 세션 스코프에 등록
-        request.getSession().setAttribute("task_id", m.getId());
+        request.getSession().setAttribute("tasks_id", m.getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
         rd.forward(request, response);

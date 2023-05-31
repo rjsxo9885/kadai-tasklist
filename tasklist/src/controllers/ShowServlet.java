@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 import utils.DBUtil;
 
 /**
@@ -36,11 +36,11 @@ public class ShowServlet extends HttpServlet {
         EntityManager em = DBUtil.createEntityManager();
 
         //아이디로부터 1개의 데이터베이스로부터 추출
-        Task m = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
+        Tasks m = em.find(Tasks.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        request.setAttribute("task", m);
+        request.setAttribute("tasks", m);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/show.jsp");
         rd.forward(request, response);
