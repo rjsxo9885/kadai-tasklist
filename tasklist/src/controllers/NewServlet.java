@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 
 /**
  * Servlet implementation class NewServlet
@@ -34,8 +34,8 @@ public class NewServlet extends HttpServlet {
         /*EntityManager em = DBUtil.createEntityManager();
         em.getTransaction().begin();
 
-        // Taskのインスタンスを生成
-        Task m = new Task();
+        // Tasksのインスタンスを生成
+        Tasks m = new Tasks();
 
         // mの各フィールドにデータを代入
         String title = "taro";
@@ -60,7 +60,7 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // おまじないとしてのインスタンスを生成
-        request.setAttribute("task", new Task());
+        request.setAttribute("tasks", new Tasks());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);

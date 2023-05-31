@@ -4,15 +4,15 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
 
-        <h2>id : ${task.id}의 상세 페이지</h2>
+        <h2>id : ${tasks.id}のページ</h2>
 
-        <p>타이틀：<c:out value="${task.title}" /></p>
-        <p>메세지：<c:out value="${task.content}" /></p>
-        <p>작성시간：<fmt:formatDate value="${task.created_at}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
-        <p>수정시간：<fmt:formatDate value="${task.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+        <p>タスク：<c:out value="${tasks.title}" /></p>
+        <p>タスク内容：<c:out value="${tasks.content}" /></p>
+        <p>タスク登録時間：<fmt:formatDate value="${tasks.created_at}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+        <p>タスク修正時間：<fmt:formatDate value="${tasks.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
 
-        <p><a href="${pageContext.request.contextPath}/index">돌아간다</a></p>
-        <p> <a href="${pageContext.request.contextPath}/edit?id=${task.id}">이 메시지 편집 </a></p>
+        <p><a href="${pageContext.request.contextPath}/Index">戻る</a></p>
+        <p> <a href="${pageContext.request.contextPath}/edit?id=${tasks.id}">がタスクを変更 </a></p>
 
     </c:param>
 </c:import>

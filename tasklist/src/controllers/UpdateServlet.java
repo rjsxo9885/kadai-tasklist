@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 import utils.DBUtil;
 
 /**
@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Task m = em.find(Task.class,(Integer)(request.getSession().getAttribute("task_id")));
+            Tasks m = em.find(Tasks.class,(Integer)(request.getSession().getAttribute("tasks_id")));
 
          // フォームの内容を各フィールドに上書き
             String title = request.getParameter("title");
@@ -56,7 +56,7 @@ public class UpdateServlet extends HttpServlet {
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("task_id");
+            request.getSession().removeAttribute("tasks_id");
 
             // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/Index");

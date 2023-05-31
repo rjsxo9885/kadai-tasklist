@@ -3,12 +3,12 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>メッセージボード</title>
+        <title>タスクボード</title>
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>메세지 보드 어플리케이션</h1>
+                <h1>タスクボードアプリケーション</h1>
             </div>
             <div id="content">
                 ${param.content}
